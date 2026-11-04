@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Chere Meto's portfolio. Software developer building useful experiences for the web."
+    />
+    <meta name="theme-color" content="#f7f8f6" />
+    <title>Chere Meto | Software Developer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="wordmark" href="#home" aria-label="Chere, home">chere<span>.</span></a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav class="navigation" id="primary-navigation" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Personal portfolio</p>
+          <h1 id="hero-title">Hi, I’m Chere<span>.</span></h1>
+          <p class="hero-title">Software Developer</p>
+          <p class="hero-description">
+            I build websites and applications, and enjoy solving problems with code.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="hero-mark" aria-hidden="true">
+          <span>CM</span>
+          <span class="hero-mark-caption">CREATIVE<br />DEVELOPER</span>
+        </div>
+      </section>
+
+      <div class="container content">
+        <section class="section" id="about" aria-labelledby="about-title">
+          <div class="section-heading">
+            <p class="section-kicker">A little about me</p>
+            <h2 id="about-title">Curious by nature.<br />Developer by choice.</h2>
+          </div>
+          <div class="section-content">
+            <p>
+              I'm Chere Meto, a software developer interested in creating simple, useful digital
+              experiences. I enjoy learning new technologies and turning ideas into working
+              projects.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="skills" aria-labelledby="skills-title">
+          <div class="section-heading">
+            <p class="section-kicker">What I work with</p>
+            <h2 id="skills-title">Skills &amp; tools</h2>
+          </div>
+          <div class="section-content">
+            <p class="section-intro">The tools I currently use to bring ideas to life.</p>
+            <ul class="skill-list">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Git</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="projects" aria-labelledby="projects-title">
+          <div class="section-heading">
+            <p class="section-kicker">Selected work</p>
+            <h2 id="projects-title">Projects</h2>
+          </div>
+          <div class="section-content">
+            <div class="empty-state">
+              <span class="empty-state-icon" aria-hidden="true">✳</span>
+              <div>
+                <h3>Projects are on the way</h3>
+                <p>
+                  This is a space to feature your work. Add a project name, a short description,
+                  and a link when you’re ready.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section contact" id="contact" aria-labelledby="contact-title">
+          <div class="section-heading">
+            <p class="section-kicker">Have a project in mind?</p>
+            <h2 id="contact-title">Let’s talk.</h2>
+          </div>
+          <div class="section-content">
+            <p>Want to work together or just say hello? I’d love to hear from you.</p>
+            <a class="email-link" href="mailto:your-email@example.com">
+              your-email@example.com <span aria-hidden="true">↗</span>
+            </a>
+            <p class="hint">Remember to replace this placeholder with your email address.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="container site-footer">
+      <p>© <span id="year"></span> Chere Meto</p>
+      <a href="#home">Back to top <span aria-hidden="true">↑</span></a>
+    </footer>
+  </body>
+</html>
