@@ -90,10 +90,33 @@ button:focus-visible {
   transition: color 160ms ease;
 }
 
+.navigation a {
+  position: relative;
+}
+
+.navigation a::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  background: var(--accent);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 180ms ease;
+}
+
 .navigation a:hover,
 .site-footer a:hover,
 .text-link:hover {
   color: var(--accent);
+}
+
+.navigation a:hover::after,
+.navigation a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .menu-toggle {
@@ -183,7 +206,7 @@ button:focus-visible {
   align-items: center;
   gap: 12px;
   border: 1px solid var(--accent);
-  border-radius: 5px;
+  border-radius: 7px;
   padding: 0 19px;
   background: var(--accent);
   color: #11140d;
@@ -192,16 +215,34 @@ button:focus-visible {
   transition: background 160ms ease, transform 160ms ease;
 }
 
-.button:hover {
+.button:hover,
+.button:focus-visible {
   transform: translateY(-2px);
   border-color: var(--accent-strong);
   background: var(--accent-strong);
+}
+
+.button:active {
+  transform: translateY(0);
 }
 
 .text-link {
   color: var(--text);
   font-size: 14px;
   font-weight: 600;
+}
+
+.text-link span,
+.email-link span,
+.contact-arrow {
+  display: inline-block;
+  transition: transform 160ms ease;
+}
+
+.text-link:hover span,
+.email-link:hover span,
+.contact-card:hover .contact-arrow {
+  transform: translate(3px, -2px);
 }
 
 .portrait-wrap {
@@ -413,10 +454,12 @@ button:focus-visible {
   display: flex;
   align-items: flex-start;
   gap: 18px;
-  border: 1px dashed #3b4137;
+  border: 1px solid #30352d;
   border-radius: 8px;
   padding: 24px;
-  background: linear-gradient(135deg, var(--surface), rgb(17 19 17 / 45%));
+  background:
+    radial-gradient(ellipse at 100% 0, rgb(196 242 105 / 6%), transparent 55%),
+    linear-gradient(135deg, var(--surface), rgb(17 19 17 / 45%));
 }
 
 .empty-state-icon {
@@ -447,19 +490,74 @@ button:focus-visible {
   border-bottom: 0;
 }
 
-.email-link {
-  display: inline-flex;
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.contact-card {
+  display: flex;
+  min-width: 0;
+  min-height: 76px;
   align-items: center;
-  gap: 9px;
-  margin-top: 16px;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 13px;
+  background: var(--surface);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.contact-card:hover,
+.contact-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgb(196 242 105 / 55%);
+  background: var(--surface-raised);
+}
+
+.contact-icon {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgb(196 242 105 / 25%);
+  border-radius: 50%;
+  background: var(--accent-soft);
   color: var(--accent);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
 }
 
-.hint {
-  margin-top: 5px !important;
-  font-size: 12px !important;
+.contact-detail {
+  min-width: 0;
+}
+
+.contact-detail small,
+.contact-detail strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact-detail small {
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.contact-detail strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.contact-arrow {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .site-footer {
@@ -501,6 +599,10 @@ button:focus-visible {
     grid-template-columns: minmax(160px, 0.75fr) minmax(0, 1.25fr);
     gap: 35px;
     padding-block: 62px;
+  }
+
+  .contact-links {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -586,6 +688,10 @@ button:focus-visible {
     padding-block: 48px;
   }
 
+  .contact-card {
+    padding-inline: 15px;
+  }
+
   .section-heading h2 br {
     display: none;
   }
@@ -607,5 +713,18 @@ button:focus-visible {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 600ms ease, transform 600ms ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
