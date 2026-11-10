@@ -283,14 +283,18 @@ button:focus-visible {
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
+  object-position: center 30%;
+  filter: saturate(1.1) contrast(1.05);
 }
 
 .portrait-art {
   position: absolute;
   inset: 8% 8% 14%;
+  z-index: 1;
   display: grid;
   overflow: hidden;
   place-items: center;
+  pointer-events: none;
 }
 
 .portrait-art::before {
@@ -334,7 +338,7 @@ button:focus-visible {
 }
 
 .portrait-monogram {
-  color: #d8efcb;
+  color: rgb(216 239 203 / 55%);
   font-family: Manrope, Arial, sans-serif;
   font-size: clamp(72px, 10vw, 110px);
   font-weight: 800;
@@ -343,12 +347,10 @@ button:focus-visible {
 }
 
 .portrait-label {
-  position: relative;
-  z-index: 1;
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0 25px 24px;
+  margin: 14px 0 0;
   border: 1px solid rgb(255 255 255 / 20%);
   border-radius: 7px;
   padding: 12px 14px;
@@ -717,10 +719,6 @@ button:focus-visible {
 
   .portrait-frame {
     min-height: 360px;
-  }
-
-  .portrait-label {
-    margin-inline: 18px;
   }
 
   .section {
